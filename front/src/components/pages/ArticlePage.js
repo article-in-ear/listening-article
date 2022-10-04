@@ -191,7 +191,7 @@ const ArticlePage = () => {
       <Header />
       <ArticleArea>
         <TitleArea>
-          <h7>{findArticle.publisher}</h7>
+          <p>{findArticle.publisher}</p>
           <h1>{findArticle.title}</h1>
           <div className="speaker" onClick={togglePlay}>
             {playing ? (
