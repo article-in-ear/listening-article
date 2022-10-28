@@ -6,7 +6,7 @@ const NotFound = () => {
     <div>
       <Header />
       <div>
-        not found
+        Not found!
       </div>
     </div>
   );

@@ -12,8 +12,6 @@ const ArticleListArea = styled.div`
 `
 
 const ArticleArea = styled.div`
-  font-size: 14px;
-  color: #353535;
   list-style: none;
   border-radius: 2%;
   margin: 0.5%;
@@ -39,6 +37,8 @@ const ArticleArea = styled.div`
 `;
 
 const ArticleLink = styled(Link)`
+  font-size: 14px;
+  color: #353535;
   display: flex;
 `;
 
@@ -68,12 +68,12 @@ function IT (props) {
 function Article(props) {
   const [playing, setPlaying] = useState(false);
 
-  let audio = new Audio(`http://haeun9969.dothome.co.kr/capstone/IT/${props.article._id}.wav`);
-
   useEffect(() => {
+  let audio = new Audio(`/audio/${props.article._id}.wav`);
+
     playing ? audio.play() : audio.pause();
     return () => audio.pause();
-  }, [playing]);
+  }, [playing, props.article._id]);
 
   function togglePlay() {
     setPlaying((s) => !s);
@@ -93,7 +93,7 @@ function Article(props) {
           <img className="pauseImg" src={pauseIcon} alt="pause" />
         ) : (
           <img className="speakerImg" src={speaker} alt="speaker" />
-        )}{" "}
+        )}
       </div>
     </ArticleArea>
     )
